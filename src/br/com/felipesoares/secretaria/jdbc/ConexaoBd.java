@@ -8,7 +8,7 @@ public class ConexaoBd {
 	
 	public Connection mySql() throws SQLException {
 		
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/secretaria?useTimezone=true&serverTimezone=UTC","root","root");
 		
 	}
