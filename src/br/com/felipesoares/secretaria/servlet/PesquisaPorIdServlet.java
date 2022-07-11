@@ -11,22 +11,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.felipesoares.secretaria.dao.AssentamentoDao;
+import br.com.felipesoares.secretaria.modelo.Assentamento;
 
-@WebServlet("/excluirAssentamento")
-public class ExcluirAssentamentoServlet extends HttpServlet {
+@WebServlet("/pesquisaPorId")
+public class PesquisaPorIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Assentamento assentamento = new Assentamento();
+		
+		Integer id = Integer.valueOf(request.getParameter("id"));
+		System.out.println(id);
 		
 		try {
-			new AssentamentoDao().excluir(Integer.valueOf(request.getParameter("id")));
+			assentamento = new AssentamentoDao().pesquisar(id);
 		} catch (NumberFormatException | SQLException e) {
+			
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher url = request.getRequestDispatcher("/formAssentamento.jsp");
+		
+		RequestDispatcher url = request.getRequestDispatcher("/assentamentoEdicao.jsp");
+		request.setAttribute("assentamento", assentamento);
 		url.forward(request, response);
-
 	}
 
 }

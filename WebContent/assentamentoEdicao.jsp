@@ -1,10 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!--core Controle de Fluxo -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--fmt formatação /i18(internacionalização) -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -16,7 +15,6 @@
     <title>Sistema de Pesquisa de Assentamentos</title>
 </head>
 <body>
-
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,23 +43,40 @@
       </nav>
 
       <div class="card">
-        <h5 class="card-header">Lista De Assentamento</h5>
-        
-        <c:if test="${not empty assentamentos }">
-	        <c:forEach items="${assentamentos}" var="assentamento">
-		         <div class="card-body">
-			          <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome} </h5>
-			          <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re}  Caixa: ${assentamento.caixa} </p>
-			          <a href="/secretaria/pesquisaPorId?id=${assentamento.id}" class="btn btn-warning" btn-sm">Alterar</a>
-		        </div>
-	        </c:forEach>
-        </c:if>
-        <c:if test="${empty assentamentos }">
-        	<h1>Nenhum Assentamento Cadastrados!</h1>
-        </c:if>
-        </div>
-      
+        <h5 class="card-header">Edição de Assentamento</h5>
+        <div class="card-body">
+
+          <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome }</h5>
+          <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
+          <a href="#" class="btn btn-secondary btn-sm">Editar</a>
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#excluir">Excluir</button>
           
+          <!-- Modal -->
+          
+			<div class="modal fade" id="excluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">Deseja Realmente Excluir o Assentamento!</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	 <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome }</h5>
+         			 <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+			        <a href="/secretaria/excluirAssentamento?id=${assentamento.id}" class="btn btn-danger">Excluir</a>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+        
+        </div>
+      </div>
+    <div class="container">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

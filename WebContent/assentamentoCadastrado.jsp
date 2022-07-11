@@ -1,7 +1,9 @@
 
-<%@page import="br.com.felipesoares.secretaria.modelo.Assentamento"%>
-<%@page import="java.util.List"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--core Controle de Fluxo -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--fmt formatação /i18(internacionalização) -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -10,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Formulário De Inserção de Assentamento</title>
+    <title>Sistema de Pesquisa de Assentamentos</title>
 </head>
 <body>
     <div class="container">
@@ -27,7 +29,7 @@
               <a class="nav-link" href="/secretaria/listarAssentamento">Listar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/formAssentamento.html">Novo Assentamento<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/formAssentamento.jsp">Novo Assentamento<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Novo Usuário<span class="sr-only">(current)</span></a>

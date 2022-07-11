@@ -21,8 +21,10 @@ public class NovoAssentamentoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String nome = request.getParameter("nome");
+		System.out.println("cadastrando "+ nome + " ");
 		Assentamento assentamento = new Assentamento();
 		assentamento.setNome(request.getParameter("nome"));
 		assentamento.setSobrenome(request.getParameter("sobrenome"));

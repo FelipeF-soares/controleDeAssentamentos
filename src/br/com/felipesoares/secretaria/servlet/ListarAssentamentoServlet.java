@@ -26,7 +26,7 @@ public class ListarAssentamentoServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+	
 		RequestDispatcher url = request.getRequestDispatcher("/listarTodosAssentamentos.jsp");
 		request.setAttribute("assentamentos", assentamentos);
 		url.forward(request, response);
