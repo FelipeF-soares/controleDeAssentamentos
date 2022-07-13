@@ -10,7 +10,9 @@ public class Assentamento {
 	private LocalDate nascimento;
 	private String re;
 	private Integer caixa;
-
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,6 +60,8 @@ public class Assentamento {
 	public void setCaixa(Integer caixa) {
 		this.caixa = caixa;
 	}
+	
+
 
 	@Override
 	public String toString() {

@@ -51,7 +51,8 @@
 	        <c:forEach items="${assentamentos}" var="assentamento">
 		         <div class="card-body">
 			          <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome} </h5>
-			          <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re}  Caixa: ${assentamento.caixa} </p>
+			          <fmt:parseDate value="${assentamento.nascimento}" pattern="yyyy-MM-dd" var="nascimetoFormatt" type="date"></fmt:parseDate>
+			          <p class="card-text">Nascimento: <fmt:formatDate pattern="dd/MM/yyyy" value="${nascimetoFormatt}"/> RE: ${assentamento.re}  Caixa: ${assentamento.caixa} </p>
 			          <a href="/secretaria/pesquisaPorId?id=${assentamento.id}" class="btn btn-warning" btn-sm">Alterar</a>
 		        </div>
 	        </c:forEach>

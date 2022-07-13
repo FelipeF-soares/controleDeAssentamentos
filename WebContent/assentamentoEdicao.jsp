@@ -47,7 +47,8 @@
         <div class="card-body">
 
           <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome }</h5>
-          <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
+          <fmt:parseDate value ="${assentamento.nascimento}" pattern="yyyy-MM-dd" var="nascimentoFormatt" type="date"></fmt:parseDate>
+          <p class="card-text">Nascimento: <fmt:formatDate pattern="dd/MM/yyyy" value="${nascimentoFormatt}"/> RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
           <a href="#" class="btn btn-secondary btn-sm">Editar</a>
           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#excluir">Excluir</button>
           
@@ -57,14 +58,15 @@
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLongTitle">Deseja Realmente Excluir o Assentamento!</h5>
+			        <h5 class="modal-title" id="exampleModalLongTitle">Deseja Realmente Excluir o Assentamento?</h5>
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
 			      </div>
 			      <div class="modal-body">
 			      	 <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome }</h5>
-         			 <p class="card-text">Nascimeto: ${assentamento.nascimento} RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
+			      	 <fmt:parseDate value="${assentamento.nascimento}" pattern="yyyy-MM-dd" var="nascimentoFormatt" type="date"></fmt:parseDate>
+         			 <p class="card-text">Nascimento:<fmt:formatDate pattern="dd/MM/yyyy" value="${nascimentoFormatt}"/> RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
