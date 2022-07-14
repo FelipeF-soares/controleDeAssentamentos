@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="/novoAssentamento" var="linkNovoAssentamento"></c:url>
 <c:url value="/pesquisarPorRe" var="linkPesquisaPorRe"></c:url>
@@ -5,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
-    <meta charset="Cp1252">
+    <meta charset="Cp1258">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Pesquisar<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/formPesquisaAvancada.jsp">Pesquisar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="/secretaria/listarAssentamento">Listar<span class="sr-only">(current)</span></a>
