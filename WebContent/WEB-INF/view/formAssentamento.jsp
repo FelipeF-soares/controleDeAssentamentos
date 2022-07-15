@@ -1,7 +1,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/atualizarAssentamento" var="linkAtualizar"></c:url>
-<c:url value="/pesquisarPorRe" var="linkPesquisaPorRe"></c:url>
+<c:url value="/entrada?acao=NovoAssentamento" var="linkNovoAssentamento"></c:url>
+<c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -14,6 +14,8 @@
 </head>
 <body>
     <div class="container">
+    
+     <!-- Barra de Navegacao -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,19 +23,19 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/formPesquisaAvancada.jsp">Pesquisar<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=FormPesquisaAvancada">Pesquisar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/listarAssentamento">Listar<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=ListarAssentamento">Listar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/formAssentamento.jsp">Novo Assentamento<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=FormNovoAssentamento">Novo Assentamento<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Novo Usuário<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="${ linkPesquisaPorRe }" method="get">
+          <form class="form-inline my-2 my-lg-0" action="${linkPesquisaPorRe}" method="post">
             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Pesquisar Por RE" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
           </form>
@@ -41,31 +43,30 @@
       </nav>
       
       
-    <form class="row gy-2 gx-3 align-items-center" action="${linkAtualizar}" method="post">
+    <form class="row gy-2 gx-3 align-items-center" action="${linkNovoAssentamento}" method="post">
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">Nome: </label>
-            <input type="text" name="nome" value="${assentamento.nome}" class="form-control" id="autoSizingInput">
+            <input type="text" name="nome" class="form-control" id="autoSizingInput" placeholder="Primeiro Nome">
         </div>
         <div class="col-md-6">
             <label class="visually-hidden" for="autoSizingInput">Sobrenome: </label>
-            <input type="text" name="sobrenome" value="${assentamento.sobrenome}" class="form-control" id="autoSizingInput" >
+            <input type="text" name="sobrenome" class="form-control" id="autoSizingInput" placeholder="Sobrenome Completo Sem Abreviação">
         </div>
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">Nascimento: </label>
-            <input type="date" name="nascimento" value="${assentamento.nascimento}"   class="form-control" id="autoSizingInput">
+            <input type="date" name="nascimento" class="form-control" id="autoSizingInput">
         </div>
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">RE: </label>
-            <input type="text" name="re" value="${assentamento.re}" class="form-control" id="autoSizingInput">
+            <input type="text" name="re" class="form-control" id="autoSizingInput" placeholder="6 dígitos">
         </div>
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">Caixa: </label>
-            <input type="text" name="caixa" value="${assentamento.caixa}" class="form-control" id="autoSizingInput">
+            <input type="text" name="caixa" class="form-control" id="autoSizingInput" placeholder="Número da Caixa">
         </div>
         <div class="col-auto">
-        <input type="hidden" name="id" value="${assentamento.id}" class="form-control" id="autoSizingInput" >
             <br>
-          	<button type="submit" class="btn btn-outline-success">Enviar</button>
+          <button type="submit" class="btn btn-outline-success">Enviar</button>
         </div>
       </form>
     <div class="container">

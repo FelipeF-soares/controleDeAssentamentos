@@ -1,4 +1,4 @@
-package br.com.felipesoares.secretaria.servlet;
+package br.com.felipesoares.secretaria.acao;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,22 +7,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.felipesoares.secretaria.dao.AssentamentoDao;
 import br.com.felipesoares.secretaria.modelo.Assentamento;
 
-@WebServlet("/pesquisaAvancada")
-public class PesquisaAvancadaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class PesquisaAvancada implements Acao{
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public String executa(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+
 		List<Assentamento> assentamentos = new ArrayList<Assentamento>();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
@@ -38,9 +33,8 @@ public class PesquisaAvancadaServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("assentamentos", assentamentos);
-		RequestDispatcher url = request.getRequestDispatcher("listarTodosAssentamentos.jsp");
-		url.forward(request, response);
+		
+		return"forward:listarTodosAssentamentos.jsp";
 		
 	}
-
 }

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--fmt formatação /i18(internacionalização) -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -15,6 +16,8 @@
 </head>
 <body>
     <div class="container">
+    
+      <!-- Barra de Navegacao -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,19 +25,19 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/formPesquisaAvancada.jsp">Pesquisar<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=FormPesquisaAvancada">Pesquisar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/listarAssentamento">Listar<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=ListarAssentamento">Listar<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/secretaria/formAssentamento.jsp">Novo Assentamento<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/secretaria/entrada?acao=FormNovoAssentamento">Novo Assentamento<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Novo Usuário<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="/secretaria/pesquisarPorRe" method="get">
+          <form class="form-inline my-2 my-lg-0" action="${linkPesquisaPorRe}" method="post">
             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Pesquisar Por RE" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
           </form>
@@ -48,7 +51,7 @@
           <h5 class="card-title">Nome: ${assentamento.nome} ${assentamento.sobrenome }</h5>
           <fmt:parseDate value ="${assentamento.nascimento}" pattern="yyyy-MM-dd" var="nascimentoFormatt" type="date"></fmt:parseDate>
           <p class="card-text">Nascimento: <fmt:formatDate pattern="dd/MM/yyyy" value="${nascimentoFormatt}"/> RE: ${assentamento.re} Caixa: ${assentamento.caixa}</p>
-          <a href="/secretaria/edicaoDeAssentamento?id=${assentamento.id}" class="btn btn-secondary btn-sm">Editar</a>
+          <a href="/secretaria/entrada?acao=EdicaoDeAssentamento&id=${assentamento.id}" class="btn btn-secondary btn-sm">Editar</a>
           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#excluir">Excluir</button>
           
           <!-- Modal -->
@@ -69,7 +72,7 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-			        <a href="/secretaria/excluirAssentamento?id=${assentamento.id}" class="btn btn-danger">Excluir</a>
+			        <a href="/secretaria/entrada?acao=ExcluirAssentamento&id=${assentamento.id}" class="btn btn-danger">Excluir</a>
 			      </div>
 			    </div>
 			  </div>

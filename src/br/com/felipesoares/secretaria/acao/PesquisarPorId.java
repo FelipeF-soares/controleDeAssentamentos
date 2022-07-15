@@ -1,23 +1,21 @@
-package br.com.felipesoares.secretaria.servlet;
+package br.com.felipesoares.secretaria.acao;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.felipesoares.secretaria.dao.AssentamentoDao;
 import br.com.felipesoares.secretaria.modelo.Assentamento;
 
-@WebServlet("/pesquisaPorId")
-public class PesquisaPorIdServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class PesquisarPorId implements Acao{
+	
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("pesquisando por Id");
+		
 		Assentamento assentamento = new Assentamento();
 		
 		Integer id = Integer.valueOf(request.getParameter("id"));
@@ -29,11 +27,10 @@ public class PesquisaPorIdServlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-		
-		
-		RequestDispatcher url = request.getRequestDispatcher("/assentamentoEdicao.jsp");
 		request.setAttribute("assentamento", assentamento);
-		url.forward(request, response);
+		
+		return "forward:assentamentoEdicao.jsp";
+		
 	}
 
 }
