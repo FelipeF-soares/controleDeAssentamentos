@@ -3,6 +3,7 @@
 <!--fmt formatação /i18(internacionalização) -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
+<c:url value="/entrada?acao=FormNovoUsuario" var="linkNovoUsuario"></c:url>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -34,7 +35,7 @@
               <a class="nav-link" href="/secretaria/entrada?acao=FormNovoAssentamento">Novo Assentamento<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Novo Usuário<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="${linkNovoUsuario}">Novo Usuário<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" action="${linkPesquisaPorRe}" method="post">

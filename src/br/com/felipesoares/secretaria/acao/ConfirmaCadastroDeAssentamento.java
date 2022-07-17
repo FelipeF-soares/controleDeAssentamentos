@@ -18,14 +18,14 @@ public class ConfirmaCadastroDeAssentamento implements Acao {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		Assentamento assentamento = new Assentamento();
-		assentamento.setNome(request.getParameter("nome").trim());
+		assentamento.setNome(request.getParameter("nome"));
 		assentamento.setSobrenome(request.getParameter("sobrenome"));
 		
 			String nascimento = request.getParameter("nascimento");
 			assentamento.setNascimento(LocalDate.parse(nascimento, formatter));
 			
 		assentamento.setRe(request.getParameter("re").trim());
-		assentamento.setCaixa(Integer.valueOf(request.getParameter("caixa").trim()));
+		assentamento.setCaixa(Integer.valueOf(request.getParameter("caixa")));
 		
 		try {
 			assentamento = new AssentamentoDao().inserir(assentamento);

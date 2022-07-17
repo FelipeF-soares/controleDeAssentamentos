@@ -1,8 +1,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/entrada?acao=NovoAssentamento" var="linkNovoAssentamento"></c:url>
-<c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
 <c:url value="/entrada?acao=FormNovoUsuario" var="linkNovoUsuario"></c:url>
+<c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
 
 <!DOCTYPE html>
 <html lang="pt-Br">
@@ -33,7 +32,7 @@
               <a class="nav-link" href="/secretaria/entrada?acao=FormNovoAssentamento">Novo Assentamento<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="${linkNovoUsuario}">Novo Usuário<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Novo Usuário<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" action="${linkPesquisaPorRe}" method="post">
@@ -42,9 +41,16 @@
           </form>
         </div>
       </nav>
+      <!-- Alerta -->
       
+	     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <strong>Seção para Criação de Novos Usuários</strong> Preencha todas as informações de maneira correta.
+		  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    	<span aria-hidden="true">&times;</span>
+  			</button>
+  		</div>
       
-    <form class="row gy-2 gx-3 align-items-center" action="${linkNovoAssentamento}" method="post">
+    <form class="row gy-2 gx-3 align-items-center" action="${linkNovoUsuario}" method="post">
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">Nome: </label>
             <input type="text" name="nome" class="form-control" id="autoSizingInput" placeholder="Primeiro Nome">
@@ -62,8 +68,8 @@
             <input type="text" name="re" class="form-control" id="autoSizingInput" placeholder="6 dígitos">
         </div>
         <div class="col-auto">
-            <label class="visually-hidden" for="autoSizingInput">Caixa: </label>
-            <input type="text" name="caixa" class="form-control" id="autoSizingInput" placeholder="Número da Caixa">
+            <label class="visually-hidden" for="autoSizingInput">Senha: </label>
+            <input type="password" name="senha" class="form-control" id="autoSizingInput" placeholder="Crie uma Senha">
         </div>
         <div class="col-auto">
             <br>
