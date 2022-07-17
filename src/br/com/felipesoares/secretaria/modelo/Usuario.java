@@ -47,6 +47,18 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	public boolean validador(String re, String senha) {
+		if(!this.re.equals(re)) {
+			return false;
+		}
+		
+		if(!this.senha.equals(senha)) {
+			return false;
+		}
+		
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", nascimento=" + nascimento

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import br.com.felipesoares.secretaria.jdbc.ConexaoBd;
@@ -43,6 +44,31 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 		
+	}
+	
+	public Usuario localizaUsuario(String re) {
+		Usuario usuario = new Usuario();
+		String sql = "SELECT * FROM usuario WHERE re = ?";
+		try(PreparedStatement localiza = conexao.prepareStatement(sql)){
+			localiza.setString(1, re);
+			localiza.execute();
+			try(ResultSet retorna = localiza.getResultSet()){
+				while(retorna.next()) {
+					usuario.setId(retorna.getInt(1));
+					usuario.setNome(retorna.getString(2));
+					usuario.setSobrenome(retorna.getString(3));
+						
+						usuario.setNascimento(LocalDate.parse(retorna.getString(4), formatter));
+						
+					usuario.setRe(retorna.getString(5));
+					usuario.setSenha(retorna.getString(6));
+				}
+			}
+			
+			return usuario;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

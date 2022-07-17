@@ -42,8 +42,9 @@
           </form>
         </div>
       </nav>
-      
-      
+      <!-- Boas Vindas  -->
+      <h3>Bem-vindo ${usuario.nome} </h3>
+      <!-- Formulario -->
     <form class="row gy-2 gx-3 align-items-center" action="${linkNovoAssentamento}" method="post">
         <div class="col-auto">
             <label class="visually-hidden" for="autoSizingInput">Nome: </label>

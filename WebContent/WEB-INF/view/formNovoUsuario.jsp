@@ -1,6 +1,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/entrada?acao=FormNovoUsuario" var="linkNovoUsuario"></c:url>
+<c:url value="/entrada?acao=NovoUsuario" var="linkNovoUsuario"></c:url>
 <c:url value="/entrada?acao=PesquisarPorRe" var="linkPesquisaPorRe"></c:url>
 
 <!DOCTYPE html>

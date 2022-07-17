@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.felipesoares.secretaria.modelo.Assentamento;
 
@@ -14,6 +15,9 @@ public class NovoAssentamento implements Acao{
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+		
+		
+		
 		System.out.println(request.getParameter("nome"));
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
